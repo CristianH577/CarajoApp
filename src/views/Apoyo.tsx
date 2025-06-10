@@ -57,7 +57,11 @@ const contents = [
 export default function Apoyo() {
   const [value, setValue] = useState(1);
 
-  const handleChange = (event: SyntheticEvent, newValue: number) => {
+  const handleChange = (
+    //@ts-ignore
+    event: SyntheticEvent,
+    newValue: number
+  ) => {
     setValue(newValue);
   };
 
