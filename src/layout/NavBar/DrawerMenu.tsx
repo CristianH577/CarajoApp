@@ -39,6 +39,7 @@ export default function DrawerMenu({
           <img
             src={logo}
             alt="Logo"
+            loading="lazy"
             className="max-h-10 hover:scale-95 transition-transform"
           />
         </Link>

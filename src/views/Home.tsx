@@ -11,12 +11,14 @@ export default function Home() {
           <img
             src={logo}
             alt="Logo"
+            loading="lazy"
             className="w-full h-fit max-w-64 drop-shadow-md drop-shadow-white"
           />
           <img
             src={screenshot}
             alt="Screenshot de la misa"
-            className="w-full h-fit max-w-96 drop-shadow-md drop-shadow-white"
+            loading="lazy"
+            className="w-full h-fit max-w-96 shadow-md shadow-black rounded-lg"
           />
         </div>
 

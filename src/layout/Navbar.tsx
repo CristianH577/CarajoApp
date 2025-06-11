@@ -30,7 +30,7 @@ export default function Navbar() {
           edge="start"
           color="inherit"
           aria-label="open drawer"
-          className="xs:me-2 sm:hidden"
+          className="xs:me-2 md:hidden"
           onClick={handleOpenDrawer}
         >
           <MenuOpenIcon className="text-4xl hover:text-secondary-300 hover:scale-105 transition-transform" />
@@ -45,6 +45,7 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Logo"
+            loading="lazy"
             className="max-h-10 hover:scale-95 transition-transform"
           />
         </Link>

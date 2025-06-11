@@ -14,12 +14,12 @@ export default function Footer() {
   return (
     <footer
       id="contacto"
-      className="bg-gradient-to-t from-primary to-primary-500 p-4 sm:px-8 sm:pt-8 mt-8"
+      className="bg-gradient-to-t from-primary to-primary-500 p-4 sm:px-8 sm:pt-8 max-sm:mt-8"
     >
       <div className="max-w-[800px] place-self-center space-y-4 w-full">
         <div className="flex flex-col gap-2 lg:flex-row lg:gap-8 lg:py-8">
           <span className="drop-shadow-md drop-shadow-white">
-            <img src={logo} alt="Logo" className="max-h-20" />
+            <img src={logo} alt="Logo" loading="lazy" className="max-h-20" />
           </span>
 
           <section className="max-sm:space-y-4 sm:flex sm:flex-row gap-8 sm:mt-4 lg:gap-12">
@@ -48,7 +48,7 @@ export default function Footer() {
                     <Link
                       href={item.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="flex gap-2 items-center text-white"
                       title={`Ir a ${item.label}`}
                     >
