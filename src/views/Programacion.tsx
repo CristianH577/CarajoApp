@@ -4,6 +4,8 @@ import { LISTA_PROGRMAS } from "../consts/listas";
 
 import { IconButton } from "@mui/material";
 
+import ImageCustom from "../components/ImageCustom";
+
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -27,10 +29,11 @@ const srcs_logos = Object.entries(images_logos).map(
 );
 
 export default function Programacion() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const thumbnailsRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<number | null>(null);
 
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState<number>(0);
 
   const handleIndex = (num: number) => {
     let i = index + num;
@@ -39,13 +42,14 @@ export default function Programacion() {
     } else if (i < 0) {
       i = srcs_programacion.length - 1;
     }
+
     setIndex(i);
   };
 
   const handleMouseDown = (direction: "left" | "right") => {
     intervalRef.current = setInterval(() => {
-      if (scrollRef.current) {
-        scrollRef.current.scrollLeft += direction === "right" ? 10 : -10;
+      if (thumbnailsRef.current) {
+        thumbnailsRef.current.scrollLeft += direction === "right" ? 10 : -10;
       }
     }, 16);
   };
@@ -54,20 +58,24 @@ export default function Programacion() {
     if (intervalRef.current) clearInterval(intervalRef.current);
   };
 
+  const showSlide = () => {
+    const slide = document.getElementById(`slide-${index}`);
+
+    if (sliderRef.current && slide) {
+      const slider = sliderRef.current;
+      slider.scrollTo({
+        left: slide.offsetLeft - slider.offsetLeft,
+      });
+    }
+  };
+
   useEffect(() => {
     const handleResetView = () => setIndex(0);
     window.addEventListener("resize", handleResetView);
     return () => window.removeEventListener("resize", handleResetView);
   }, []);
 
-  useEffect(() => {
-    const element = document.getElementById(`slide-${index}`);
-    if (element) {
-      element.scrollIntoView({
-        block: "nearest",
-      });
-    }
-  }, [index]);
+  useEffect(showSlide, [index]);
 
   return (
     <section id="programacion" className="py-4 sm:py-8 space-y-4">
@@ -99,7 +107,7 @@ export default function Programacion() {
         </div>
 
         <div
-          ref={scrollRef}
+          ref={thumbnailsRef}
           className="overflow-x-auto scrollbar-hidden relative"
         >
           <div className="flex gap-12 px-20 items-center w-fit lg:place-self-center ">
@@ -116,11 +124,10 @@ export default function Programacion() {
                   data-selected={index === i}
                   onClick={() => setIndex(i)}
                 >
-                  <img
+                  <ImageCustom
                     src={src}
                     alt={"Logo de " + programa.label}
-                    loading="lazy"
-                    className=""
+                    {...programa.logoSizes}
                   />
                 </div>
               );
@@ -161,7 +168,10 @@ export default function Programacion() {
           ))}
         </div> */}
 
-        <div className="overflow-x-scroll scroll-smooth scrollbar-hidden min-h-48">
+        <div
+          ref={sliderRef}
+          className="overflow-x-scroll scroll-smooth scrollbar-hidden min-h-48"
+        >
           <ul className="flex w-fit py-2 sm:py-4 select-none">
             {LISTA_PROGRMAS.map((programa, i) => {
               const src = srcs_programacion.find((item) =>
@@ -174,11 +184,12 @@ export default function Programacion() {
                   className="w-dvw lg:w-5xl flex items-center justify-center hover:cursor-pointer px-4"
                   onClick={() => handleIndex(1)}
                 >
-                  <img
+                  <ImageCustom
                     src={src}
                     alt={"Banner de " + programa.label}
-                    loading="lazy"
                     className="w-full max-w-96"
+                    width={400}
+                    height={600}
                   />
                 </li>
               );

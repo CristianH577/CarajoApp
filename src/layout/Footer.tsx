@@ -19,7 +19,14 @@ export default function Footer() {
       <div className="max-w-[800px] place-self-center space-y-4 w-full">
         <div className="flex flex-col gap-2 lg:flex-row lg:gap-8 lg:py-8">
           <span className="drop-shadow-md drop-shadow-white">
-            <img src={logo} alt="Logo" loading="lazy" className="max-h-20" />
+            <img
+              src={logo}
+              alt="Logo"
+              loading="lazy"
+              className="max-h-20"
+              width={200}
+              height={80}
+            />
           </span>
 
           <section className="max-sm:space-y-4 sm:flex sm:flex-row gap-8 sm:mt-4 lg:gap-12">

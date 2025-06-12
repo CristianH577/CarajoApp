@@ -25,6 +25,6 @@ dist-ssr
 
 
 src/z
-src/components
+src/components/Component.tsx
 src/layout/Layout.tsx
 src/layout/NotFound.tsx

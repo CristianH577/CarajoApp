@@ -51,21 +51,41 @@ export const LISTA_PROGRMAS = [
   {
     id: "misa",
     label: "La Misa",
+    logoSizes: {
+      width: 100,
+      height: 130,
+    },
   },
   {
     id: "trinchera",
     label: "La Trinchera",
+    logoSizes: {
+      width: 320,
+      height: 90,
+    },
   },
   {
     id: "fuerza",
     label: "La Fuerza",
+    logoSizes: {
+      width: 100,
+      height: 130,
+    },
   },
   {
     id: "estado",
     label: "Estado de sitio",
+    logoSizes: {
+      width: 140,
+      height: 130,
+    },
   },
   {
     id: "suciedad",
     label: "Alta Suciedad",
+    logoSizes: {
+      width: 220,
+      height: 130,
+    },
   },
 ];

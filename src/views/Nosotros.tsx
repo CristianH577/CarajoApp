@@ -5,6 +5,8 @@ import type { TypeIcon, TypeObjectGeneral } from "../consts/types.js";
 
 import { Link } from "@mui/material";
 
+import ImageCustom from "../components/ImageCustom.tsx";
+
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
@@ -59,11 +61,12 @@ export default function Nosotros() {
                 (i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse")
               }
             >
-              <img
+              <ImageCustom
                 src={src}
                 alt={"Foto de " + item.nombre}
-                loading="lazy"
                 className="w-full max-w-96 sm:max-w-72 md:max-w-96 rounded-lg shadow-md shadow-black"
+                width={380}
+                height={216}
               />
 
               <div className="w-full p-2 max-w-96">

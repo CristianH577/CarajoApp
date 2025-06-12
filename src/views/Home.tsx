@@ -1,5 +1,7 @@
 import { Button } from "@mui/material";
 
+import ImageCustom from "../components/ImageCustom";
+
 import logo from "../assets/imgs/logo.webp";
 import screenshot from "../assets/imgs/misa-screenshot.webp";
 
@@ -8,17 +10,19 @@ export default function Home() {
     <section className="flex sm:justify-center overflow-x-auto w-fit scrollbar-hidden">
       <article className="p-8 flex flex-col md:flex-row-reverse md:items-center gap-4 md:pgap-8 sm:w-fit">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center md:flex-col">
-          <img
+          <ImageCustom
             src={logo}
             alt="Logo"
-            loading="lazy"
             className="w-full h-fit max-w-64 drop-shadow-md drop-shadow-white"
+            width={260}
+            height={100}
           />
-          <img
+          <ImageCustom
             src={screenshot}
             alt="Screenshot de la misa"
-            loading="lazy"
             className="w-full h-fit max-w-96 shadow-md shadow-black rounded-lg"
+            width={400}
+            height={215}
           />
         </div>
 

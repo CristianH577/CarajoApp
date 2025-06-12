@@ -6,9 +6,9 @@ import Apoyo from "./views/Apoyo";
 import Nosotros from "./views/Nosotros";
 
 import KeyboardCapslockIcon from "@mui/icons-material/KeyboardCapslock";
+import { IconButton } from "@mui/material";
 
 import banner from "./assets/imgs/channels_banner.webp";
-import { IconButton } from "@mui/material";
 
 function App() {
   return (
@@ -27,6 +27,8 @@ function App() {
           alt="Banner de canales"
           loading="lazy"
           className="max-sm:hidden lg:rounded-t-lg"
+          width={1024}
+          height={170}
         />
       </main>
 

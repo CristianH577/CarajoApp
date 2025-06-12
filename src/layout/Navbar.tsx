@@ -47,6 +47,8 @@ export default function Navbar() {
             alt="Logo"
             loading="lazy"
             className="max-h-10 hover:scale-95 transition-transform"
+            width={100}
+            height={40}
           />
         </Link>
 
